@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{ data.id ? "Editar Documento" : "Novo Documento" }}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field
+    ><mat-label>Tipo do documento</mat-label>
+    <input matInput formControlName="documentType" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Número do documento</mat-label>
+    <input matInput formControlName="documentNumber" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <app-button (click)="cancel()" label="CANCELAR"></app-button>
+  <app-button (click)="save()" label="SALVAR"></app-button>
+</mat-dialog-actions>

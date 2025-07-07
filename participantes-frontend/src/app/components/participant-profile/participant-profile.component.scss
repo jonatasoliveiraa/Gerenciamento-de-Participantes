@@ -1,0 +1,43 @@
+.container {
+  padding-inline: 1.25rem;
+  margin-top: 3rem;
+}
+.card {
+  box-shadow: 2px 0 2px rgb(0, 0, 0, 0.2), -1px 0 4px rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.content-container {
+  max-width: 100%;
+  height: 37.5rem;
+  overflow-y: auto;
+}
+.list-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  flex-grow: 0;
+  flex-basis: unset;
+}
+.list {
+  margin-bottom: 1rem;
+}
+.list-profile-data,
+.list-profile-address,
+.signatureCards,
+.personalDocuments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.signatureCards,
+.personalDocuments {
+  gap: 1rem;
+}
+.container-button {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}

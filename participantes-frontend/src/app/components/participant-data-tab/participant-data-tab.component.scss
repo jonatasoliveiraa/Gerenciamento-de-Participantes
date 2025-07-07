@@ -1,0 +1,71 @@
+.container-form {
+  margin-block: 3rem;
+  margin-inline: 1.75rem;
+
+  .container-fields {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .container-fields:nth-child(1) {
+    mat-form-field:nth-child(1) {
+      width: 20%;
+    }
+    mat-form-field:nth-child(2) {
+      width: 30%;
+    }
+    mat-form-field:nth-child(3) {
+      width: 90%;
+    }
+    mat-form-field:nth-child(4) {
+      width: 80%;
+    }
+    mat-form-field:nth-child(5) {
+      width: 40%;
+    }
+    mat-checkbox {
+      width: 30%;
+    }
+  }
+
+  .container-fields:nth-child(2) {
+    mat-form-field:nth-child(1) {
+      width: 80%;
+    }
+  }
+
+  .container-fields:nth-child(3) {
+    max-height: 5rem;
+    mat-form-field:nth-child(3),
+    mat-form-field:nth-child(4) {
+      width: 80%;
+    }
+  }
+
+  .container-fields:nth-child(4) {
+    width: 50%;
+  }
+}
+:host(.modal) .container-form {
+  all: unset;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  .container-fields {
+    all: unset;
+    display: contents;
+    mat-form-field {
+      all: unset;
+    }
+    .code,
+    .spouse,
+    .personalCondition,
+    mat-checkbox {
+      display: none;
+    }
+  }
+}

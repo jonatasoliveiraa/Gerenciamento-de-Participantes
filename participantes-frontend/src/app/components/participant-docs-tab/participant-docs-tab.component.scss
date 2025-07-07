@@ -1,0 +1,13 @@
+.container-form {
+  margin-block: 3rem;
+
+  .container-fields {
+    padding-inline: 1.75rem;
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    mat-form-field {
+      width: 30%;
+    }
+  }
+}

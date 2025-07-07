@@ -1,0 +1,9 @@
+mat-dialog-content {
+  display: grid;
+  grid-template-columns: repeat(2, 10rem);
+  margin-block: 1rem;
+}
+
+mat-dialog-actions {
+  gap: 1rem;
+}

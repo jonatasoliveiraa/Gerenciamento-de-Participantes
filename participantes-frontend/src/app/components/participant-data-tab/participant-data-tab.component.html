@@ -1,0 +1,145 @@
+<div [formGroup]="form" class="container-form">
+  <div class="container-fields">
+    <mat-form-field class="form-field code">
+      <mat-label>Código</mat-label>
+      <input matInput disabled />
+    </mat-form-field>
+
+    <mat-form-field class="form-field externalCode">
+      <mat-label>Código Externo</mat-label>
+      <input
+        matInput
+        #externalCode
+        maxlength="20"
+        formControlName="externalCode"
+      />
+      <mat-hint align="end">{{ externalCode.value.length }}/20</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="form-field fullName">
+      <mat-label>Nome Completo</mat-label>
+      <input matInput required formControlName="fullName" />
+      <mat-error>Campo obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field email">
+      <mat-label>Email</mat-label>
+      <input matInput #email maxlength="100" formControlName="email" />
+      <mat-hint align="end">{{ email.value.length }}/100</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="form-field cpf">
+      <mat-label>CPF</mat-label>
+      <input matInput required maxlength="14" formControlName="cpf" />
+      <mat-error>Campo obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="container-fields">
+    <mat-form-field class="form-field gender">
+      <mat-label>Sexo</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option [value]="null">Selecione</mat-option>
+        <mat-option [value]="genderOptions.MALE">Masculino</mat-option>
+        <mat-option [value]="genderOptions.FEMALE">Feminino</mat-option>
+        <mat-option [value]="genderOptions.OTHER">Outro</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field maritalStatus">
+      <mat-label>Estado Civil</mat-label>
+      <mat-select formControlName="maritalStatus">
+        <mat-option [value]="null">Selecione</mat-option>
+        <mat-option [value]="maritalStatusOptions.SINGLE"
+          >Solteiro(a)</mat-option
+        >
+        <mat-option [value]="maritalStatusOptions.MARRIED"
+          >Casado(a)</mat-option
+        >
+        <mat-option [value]="maritalStatusOptions.SEPARATED"
+          >Separado(a)</mat-option
+        >
+        <mat-option [value]="maritalStatusOptions.DIVORCED"
+          >Divorciado(a)</mat-option
+        >
+        <mat-option [value]="maritalStatusOptions.WIDOWER">Viúvo(a)</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field spouse">
+      <mat-label>Cônjuge</mat-label>
+      <input matInput disabled />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="form-field idDoc">
+      <mat-label>Documento de identificação</mat-label>
+      <input
+        matInput
+        #idDoc
+        maxlength="50"
+        formControlName="identificationDocument"
+      />
+      <mat-hint align="end">{{ idDoc.value.length }}/50</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="container-fields">
+    <mat-form-field class="form-field observation">
+      <mat-label>Observação (sem impacto em poderes)</mat-label>
+      <textarea
+        matInput
+        #obs
+        maxlength="4000"
+        rows="2"
+        formControlName="observation"
+      ></textarea>
+      <mat-hint align="end">{{ obs.value.length }}/4000</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="form-field personalCondition">
+      <mat-label>Condição pessoal</mat-label>
+      <mat-select disabled> </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-field phone">
+      <mat-label>Telefone</mat-label>
+      <span matTextPrefix>+55 &nbsp;</span>
+      <input
+        type="tel"
+        matInput
+        maxlength="20"
+        placeholder="(__) _____-____"
+        formControlName="phone"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-field cellPhone">
+      <mat-label>Telefone celular</mat-label>
+      <span matTextPrefix>+55 &nbsp;</span>
+      <input
+        type="tel"
+        matInput
+        maxlength="20"
+        placeholder="(__) _____-____"
+        formControlName="cellPhone"
+      />
+    </mat-form-field>
+  </div>
+  <div class="container-fields">
+    <mat-form-field class="form-field validityRegisteredForm">
+      <mat-label>Validade da ficha cadastrada</mat-label>
+      <input matInput type="date" formControlName="validityRegisteredForm" />
+      <mat-hint align="start">dd/mm/yyyy</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="form-field birthDate">
+      <mat-label>Data de nascimento</mat-label>
+      <input matInput type="date" formControlName="birthDate" />
+      <mat-hint align="start">dd/mm/yyyy</mat-hint>
+    </mat-form-field>
+  </div>
+  <mat-checkbox formControlName="status">Ativo</mat-checkbox>
+  <mat-checkbox formControlName="digitalSignature">
+    Assina digital/eletronicamente
+  </mat-checkbox>
+</div>

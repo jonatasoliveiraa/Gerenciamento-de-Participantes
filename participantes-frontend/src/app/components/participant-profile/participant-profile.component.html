@@ -1,0 +1,240 @@
+<div class="container">
+  <div class="card">
+    <div class="content-container">
+      <mat-accordion
+        class="example-headers-align"
+        multi
+        *ngIf="participant; else loading"
+      >
+        <mat-expansion-panel [expanded]="step() === 0" (opened)="setStep(0)">
+          <mat-expansion-panel-header>
+            <div class="list-wrapper">
+              <mat-panel-title> Dados do perfil </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon>account_circle</mat-icon>
+              </mat-panel-description>
+            </div>
+          </mat-expansion-panel-header>
+          <mat-list class="list-profile-data">
+            <mat-list-item>
+              <span matListItemTitle>Código Externo</span>
+              <span matListItemLine>{{ participant.externalCode }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Nome Completo</span>
+              <span matListItemLine>{{ participant.fullName }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Email</span>
+              <span matListItemLine>{{ participant.email }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>CPF/CNPJ</span>
+              <span matListItemLine>{{ participant.cpf }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Gênero</span>
+              <span matListItemLine>{{ participant.gender }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Estado Civil</span>
+              <span matListItemLine>{{ participant.maritalStatus }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Documento de Identificação</span>
+              <span matListItemLine>{{
+                participant.identificationDocument
+              }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Observação</span>
+              <span matListItemLine>{{ participant.observation }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Telefone</span>
+              <span matListItemLine>{{ participant.phone }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Telefone Celular</span>
+              <span matListItemLine>{{ participant.cellPhone }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>validityRegisteredForm</span>
+              <span matListItemLine>{{
+                participant.validityRegisteredForm
+              }}</span>
+            </mat-list-item>
+            <mat-list-item>
+              <span matListItemTitle>Data de Nascimento</span>
+              <span matListItemLine>{{ participant.birthDate }}</span>
+            </mat-list-item>
+          </mat-list>
+          <div class="container-button">
+            <app-button
+              label="EDITAR"
+              (click)="openEditDataModal()"
+            ></app-button>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step() === 1" (opened)="setStep(1)">
+          <mat-expansion-panel-header>
+            <div class="list-wrapper">
+              <mat-panel-title> Endereços </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon>home</mat-icon>
+              </mat-panel-description>
+            </div>
+          </mat-expansion-panel-header>
+          <div
+            class="list"
+            *ngFor="let address of participant.addresses; let i = index"
+          >
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Endereço {{ i + 1 }} </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list class="list-profile-address">
+                <mat-list-item>
+                  <span matListItemTitle>Rua</span>
+                  <span matListItemLine>{{ address.street }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>Bairro</span>
+                  <span matListItemLine>{{ address.neighborhood }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>Cidade</span>
+                  <span matListItemLine>{{ address.city }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>Estado</span>
+                  <span matListItemLine>{{ address.state }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>Número</span>
+                  <span matListItemLine>{{ address.number }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>Complemento</span>
+                  <span matListItemLine>{{ address.complement }}</span>
+                </mat-list-item>
+                <mat-list-item>
+                  <span matListItemTitle>CEP</span>
+                  <span matListItemLine>{{ address.zipCode }}</span>
+                </mat-list-item>
+              </mat-list>
+              <div class="container-button">
+                <app-button
+                  (click)="openEditAddressModal(address)"
+                  label="Editar"
+                />
+                <app-button
+                  (click)="onDeleteAddress(address.id)"
+                  label="Excluir"
+                />
+              </div>
+            </mat-expansion-panel>
+          </div>
+          <div class="container-button">
+            <app-button (click)="openNewAddressModal()" label="Novo Endereço" />
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step() === 2" (opened)="setStep(2)">
+          <mat-expansion-panel-header>
+            <div class="list-wrapper">
+              <mat-panel-title> Cartões de Assinatura </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon>credit_card</mat-icon>
+              </mat-panel-description>
+            </div>
+          </mat-expansion-panel-header>
+          <div class="signatureCards">
+            <div
+              class="list"
+              *ngFor="let card of participant.signatureCards; let i = index"
+            >
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Cartão {{ i + 1 }} </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <mat-list-item>
+                    <span matListItemTitle>Número do Cartão</span>
+                    <span matListItemLine>{{ card.cardNumber }}</span>
+                  </mat-list-item>
+                </mat-list>
+                <div class="container-button">
+                  <app-button
+                    (click)="openEditCardModal(card)"
+                    label="Editar"
+                  />
+                  <app-button (click)="onDeleteCard(card.id)" label="Excluir" />
+                </div>
+              </mat-expansion-panel>
+            </div>
+          </div>
+          <div class="container-button">
+            <app-button (click)="openNewCardModal()" label="Novo Cartão" />
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step() === 3" (opened)="setStep(3)">
+          <mat-expansion-panel-header>
+            <div class="list-wrapper">
+              <mat-panel-title> Documentos Pessoais </mat-panel-title>
+              <mat-panel-description>
+                <mat-icon>description</mat-icon>
+              </mat-panel-description>
+            </div>
+          </mat-expansion-panel-header>
+          <div class="personalDocuments">
+            <div
+              class="list"
+              *ngFor="
+                let document of participant.personalDocuments;
+                let i = index
+              "
+            >
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Documento {{ i + 1 }} </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <mat-list-item>
+                    <span matListItemTitle>Tipo do Documento</span>
+                    <span matListItemLine>{{ document.documentType }}</span>
+                  </mat-list-item>
+                  <mat-list-item>
+                    <span matListItemTitle>Número do Documento</span>
+                    <span matListItemLine>{{ document.documentNumber }}</span>
+                  </mat-list-item>
+                </mat-list>
+                <div class="container-button">
+                  <app-button
+                    (click)="openEditDocumentModal(document)"
+                    label="Editar"
+                  />
+                  <app-button
+                    (click)="onDeleteDocument(document.id)"
+                    label="Excluir"
+                  />
+                </div>
+              </mat-expansion-panel>
+            </div>
+          </div>
+          <div class="container-button">
+            <app-button
+              (click)="openNewDocumentModal()"
+              label="Novo Documento"
+            />
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Carregando perfil…</p>
+  </ng-template>
+</div>

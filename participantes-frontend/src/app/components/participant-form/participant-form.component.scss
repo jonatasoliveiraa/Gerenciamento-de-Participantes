@@ -1,0 +1,13 @@
+.container {
+  margin-top: 1rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+mat-tab-group {
+  margin-inline: 1.25rem;
+  border-radius: 5px;
+  box-shadow: 2px 0 2px rgb(0, 0, 0, 0.2), -1px 0 4px rgb(0, 0, 0, 0.2);
+}

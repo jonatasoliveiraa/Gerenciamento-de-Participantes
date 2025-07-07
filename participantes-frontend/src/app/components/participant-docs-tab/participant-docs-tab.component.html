@@ -1,0 +1,19 @@
+<div class="container-form personalDocuments" [formGroup]="form">
+  <div formArrayName="personalDocuments">
+    <div
+      class="container-fields"
+      *ngFor="let documentCtrl of personalDocuments.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <mat-form-field>
+        <mat-label>Tipo do documento</mat-label>
+        <input matInput formControlName="documentType" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Número do documento</mat-label>
+        <input matInput formControlName="documentNumber" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>

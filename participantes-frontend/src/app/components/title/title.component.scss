@@ -1,0 +1,12 @@
+.container {
+  padding-inline: 1.25rem;
+  margin-top: 1rem;
+}
+.title {
+  border-bottom: 1px solid var(--gray-background-color);
+  h1 {
+    font: var(--font-lg);
+    color: var(--font-color-title);
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ data.id ? "Editar Endereço" : "Novo Endereço" }}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field
+    ><mat-label>Rua</mat-label>
+    <input matInput formControlName="street" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Bairro</mat-label>
+    <input matInput formControlName="neighborhood" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Cidade</mat-label>
+    <input matInput formControlName="city" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Estado</mat-label>
+    <input matInput formControlName="state" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Número</mat-label>
+    <input type="number" matInput formControlName="number" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>Complemento</mat-label>
+    <input matInput formControlName="complement" />
+  </mat-form-field>
+  <mat-form-field
+    ><mat-label>CEP</mat-label>
+    <input matInput formControlName="zipCode" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <app-button (click)="cancel()" label="CANCELAR"></app-button>
+  <app-button (click)="save()" label="SALVAR"></app-button>
+</mat-dialog-actions>

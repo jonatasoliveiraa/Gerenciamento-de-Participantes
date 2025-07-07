@@ -1,0 +1,18 @@
+<div class="page-wrapper">
+  <app-nav-header />
+  <app-title label="Gerenciamento de participantes" />
+  <div class="page-content">
+    <app-participant-table-data
+      (selectionChange)="handleSelection($event)"
+      #list
+    />
+  </div>
+  <app-footer>
+    <app-button
+      [disabled]="selectedItems.length === 0"
+      (click)="deleteSelected()"
+      label="EXCLUIR ({{ selectedItems.length }})"
+    />
+    <app-button [routerLink]="['create']" label="ADICIONAR" />
+  </app-footer>
+</div>

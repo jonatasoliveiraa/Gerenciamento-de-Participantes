@@ -1,0 +1,38 @@
+.container {
+  padding-inline: 1.25rem;
+  margin-top: 3rem;
+}
+.content-container {
+  box-shadow: 2px 0 2px rgb(0, 0, 0, 0.2), -1px 0 4px rgb(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.table-wrapper {
+  max-width: 100%;
+  height: 37.5rem;
+  overflow-y: scroll;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mat-mdc-header-row {
+  background-color: var(--gray-background-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  text-align: center;
+}
+.clickable-row {
+  cursor: pointer;
+}
+.clickable-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+td {
+  text-transform: capitalize;
+}

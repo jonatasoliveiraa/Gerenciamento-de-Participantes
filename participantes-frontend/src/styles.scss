@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font: inherit;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  @include mat.tabs-overrides(
+    (
+      label-text-size: 1.125rem,
+      label-text-weight: 400,
+      active-label-text-color: var(--font-color-title),
+      inactive-label-text-color: var(--font-color-title),
+    )
+  );
+  @include mat.form-field-overrides(
+    (
+      filled-container-color: #f5f5f5,
+      filled-disabled-container-color: #fafafa,
+      filled-disabled-active-indicator-color: #fafafa,
+      filled-active-indicator-color: #d6d6d6,
+      filled-caret-color: black,
+      filled-active-indicator-height: 2px,
+    )
+  );
+  @include mat.table-overrides(
+    (
+      background-color: #fff,
+      header-headline-color: var(--font-color-title),
+      header-container-height: 5rem,
+      header-headline-size: 1.125rem,
+      row-item-outline-color: var(--secondary-gray),
+    )
+  );
+  @include mat.expansion-overrides(
+    (
+      container-background-color: #fff,
+    )
+  );
+  @include mat.paginator-overrides(
+    (
+      container-background-color: #fff,
+    )
+  );
+  --primary-gray: #636363;
+  --secondary-gray: #d6d6d6;
+  --gray-background-color: #eeeeee;
+
+  --font-family: "Roboto", sans-serif;
+  --font-color-title: #636363;
+  --font-lg: 600 1.75rem var(--font-family);
+  --font-md: 600 1.125rem var(--font-family);
+  --font-sm: 400 1rem var(--font-family);
+}
+
+html {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: mat.$blue-palette,
+      typography: Roboto,
+      density: 0,
+    )
+  );
+  font-family: var(--font-family);
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  overflow: auto;
+}
+
+body {
+  margin: auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

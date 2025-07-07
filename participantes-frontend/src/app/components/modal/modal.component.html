@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Editar</h2>
+<mat-dialog-content [formGroup]="form">
+  <app-participant-data-tab class="modal" [form]="form" />
+</mat-dialog-content>
+<mat-dialog-actions>
+  <app-button (click)="cancel()" label="CANCELAR"></app-button>
+  <app-button label="ATUALIZAR" (click)="update()"></app-button>
+</mat-dialog-actions>

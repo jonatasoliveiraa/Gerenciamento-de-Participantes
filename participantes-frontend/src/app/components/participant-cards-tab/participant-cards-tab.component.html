@@ -1,0 +1,14 @@
+<div class="container-form" [formGroup]="form">
+  <div formArrayName="signatureCards">
+    <div
+      class="container-fields"
+      *ngFor="let cardCtrl of signatureCards.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <mat-form-field>
+        <mat-label>Número do cartão</mat-label>
+        <input matInput formControlName="cardNumber" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
