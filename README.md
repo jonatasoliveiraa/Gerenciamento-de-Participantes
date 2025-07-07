@@ -12,7 +12,7 @@ Foi desenvolvido um projeto de CRUD de Gerenciamento de Participantes utilizando
 - JPA / Hibernate
 - Maven
 ## Front end
-- HTML / CSS / JS / TypeScript
+- HTML / SCSS / JS / TypeScript
 - Angular
 - Material Angular
 # Como executar o projeto
